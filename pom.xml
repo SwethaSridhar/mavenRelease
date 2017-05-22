@@ -44,7 +44,7 @@
 </properties>
 
     <scm>
-    <url>https://github.com/Rajeshkumar90/jpetStore</url>
+    <url>https://github.com/SwethaSridhar/mavenRelease</url>
     <connection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</connection>
     <developerConnection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</developerConnection>
     <tag>HEAD</tag>
