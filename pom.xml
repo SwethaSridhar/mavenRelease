@@ -13,6 +13,13 @@
   <artifactId>Docker-Security-Scanner</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>hpi</packaging>
+<scm>
+    <url>https://github.com/SwethaSridhar/mavenRelease</url>
+    <connection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</connection>
+    <developerConnection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</developerConnection>
+    <tag>HEAD</tag>
+                </scm>
+
 
   <properties>
     <!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to run. -->
@@ -43,13 +50,7 @@
     
 </properties>
 
-    <scm>
-    <url>https://github.com/SwethaSridhar/mavenRelease</url>
-    <connection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</connection>
-    <developerConnection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</developerConnection>
-    <tag>HEAD</tag>
-                </scm>
-
+    
   <name>Docker Security Scanner</name>
   <description>Scans Local Docker images for any security vulnerabilities</description>
   <url>https://wiki.jenkins-ci.org/display/JENKINS/TODO+Plugin</url>
@@ -63,16 +64,19 @@
     </license>
   </licenses>
 
-   <distributionManagement>
-    <repository>
-      <id>maven.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/releases/</url>
-    </repository>
-    <snapshotRepository>
-      <id>maven.jenkins-ci.org</id>
-      <url>https://repo.jenkins-ci.org/snapshots/</url>
-    </snapshotRepository>
-  </distributionManagement>
+   <distributionManagement> 
+        <repository>
+            <id>fakerepo</id>
+            <name>Local file system</name>
+            <url>file:///D:/New folder/repo</url>
+        </repository>
+        <snapshotRepository>
+            <id>fakesnapshotrepo</id>
+            <name>Local file system</name>
+            <url>file:///D:/New folder/snapshotrepo</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 
   <repositories>
     <repository>
