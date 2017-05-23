@@ -13,12 +13,7 @@
   <artifactId>Docker-Security-Scanner</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>hpi</packaging>
-<scm>
-    <url>https://github.com/SwethaSridhar/mavenRelease</url>
-    <connection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</connection>
-    <developerConnection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</developerConnection>
-    <tag>HEAD</tag>
-                </scm>
+
 
 
   <properties>
@@ -63,6 +58,12 @@
       <comments>A business-friendly OSS license</comments>
     </license>
   </licenses>
+  <scm>
+    <url>https://github.com/SwethaSridhar/mavenRelease</url>
+    <connection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</connection>
+    <developerConnection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</developerConnection>
+    <tag>HEAD</tag>
+                </scm>
 
    <distributionManagement> 
         <repository>
