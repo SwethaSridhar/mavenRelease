@@ -8,13 +8,10 @@
     <version>2.3</version>
     <relativePath />
   </parent>
-  
   <groupId>org.jenkins-ci.plugins</groupId>
   <artifactId>Docker-Security-Scanner</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>hpi</packaging>
-
-
 
   <properties>
     <!-- Baseline Jenkins version you use to build the plugin. Users must have this version or newer to run. -->
@@ -40,12 +37,9 @@
     <jenkins.jobName>${env.JOB_NAME}</jenkins.jobName>
     <jenkins.svnRevision>${env.SVN_REVISION}</jenkins.svnRevision>
     <jenkins.workspace>${env.WORKSPACE}</jenkins.workspace>
-    <project.scm.id>deployment-1</project.scm.id>           
-    
-    
+    <project.scm.id>deployment</project.scm.id>
 </properties>
-
-    
+  
   <name>Docker Security Scanner</name>
   <description>Scans Local Docker images for any security vulnerabilities</description>
   <url>https://wiki.jenkins-ci.org/display/JENKINS/TODO+Plugin</url>
@@ -58,26 +52,38 @@
       <comments>A business-friendly OSS license</comments>
     </license>
   </licenses>
-  <scm>
+<scm>
     <url>https://github.com/SwethaSridhar/mavenRelease</url>
     <connection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</connection>
     <developerConnection>scm:git:https://github.com/SwethaSridhar/mavenRelease.git</developerConnection>
     <tag>HEAD</tag>
-                </scm>
-
-   <distributionManagement> 
-        <repository>
-            <id>fakerepo</id>
-            <name>Local file system</name>
-            <url>file:///D:/New folder/repo</url>
-        </repository>
-        <snapshotRepository>
-            <id>fakesnapshotrepo</id>
-            <name>Local file system</name>
-            <url>file:///D:/New folder/snapshotrepo</url>
-        </snapshotRepository>
-    </distributionManagement>
-
+  </scm>
+   <distributionManagement>
+   <!-- 
+    <repository>
+      <id>maven.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>maven.jenkins-ci.org</id>
+      <url>https://repo.jenkins-ci.org/snapshots/</url>
+    </snapshotRepository>
+    
+     -->
+     <repository>
+         <id>deployment-1</id>
+          <name>maven-releases</name>
+          <url>file:///D:/Maven_repo</url>
+     </repository>
+      <snapshotRepository>
+         <id>deployment-1</id>
+         <name>maven-snapshots</name>
+             <uniqueVersion>false</uniqueVersion>
+         <url>file:///D:/Maven_repo_snap</url>
+      </snapshotRepository>
+     
+    
+  </distributionManagement>
 
   <repositories>
     <repository>
@@ -91,26 +97,28 @@
       <url>http://repo.jenkins-ci.org/public/</url>
     </pluginRepository>
   </pluginRepositories>
-  <build>
-		<finalName>Docker-Security-Scanner</finalName>
-		<plugins>
-			<plugin>
+  
+   <build>
+   <plugins>
+   <!-- 
+	<plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
         <configuration>
          <skip>true</skip>
         </configuration>
       </plugin>
+       -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-                <version>2.4.2</version>
-                <configuration>
-                    <checkModificationExcludes>
-                                <checkModificationExclude>pom.xml</checkModificationExclude>
-                    </checkModificationExcludes>
-                </configuration>
-                <dependencies>
+	<version>2.4.2</version>
+	<configuration>
+	    <checkModificationExcludes>
+      		<checkModificationExclude>pom.xml</checkModificationExclude>
+	    </checkModificationExcludes>
+	</configuration>
+	<dependencies>
         <dependency>
           <groupId>org.apache.maven.scm</groupId>
           <artifactId>maven-scm-provider-gitexe</artifactId>
@@ -118,8 +126,7 @@
         </dependency>
        </dependencies>
     </plugin>
-
-		</plugins>
-	</build>
+    </plugins>
+</build>
 
 </project>
