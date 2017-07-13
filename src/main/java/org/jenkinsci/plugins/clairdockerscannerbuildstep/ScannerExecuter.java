@@ -46,7 +46,7 @@ public class ScannerExecuter {
 	static int countNeg = 0;
 
 	public static int execute(AbstractBuild build, Launcher launcher, BuildListener listener, String artifactName,
-			String apiURL, String localImage, String localAnalyzerPath, String build_no, String jenkins_home)
+			String apiURL, String localImage, String localAnalyzerPath, String build_no, String jenkins_home,int buildNo)
 					throws IOException, InterruptedException {
 		int exitCode = 0;
 		PrintStream print_stream = null;
@@ -96,7 +96,7 @@ public class ScannerExecuter {
 		PrintStream out = new PrintStream(new FileOutputStream(outFile1));
 		FilePath outfilFilePath1 = new FilePath(outFile1);
 		FilePath filename = Text_HTMLConverter.text_to_html(outFile, outfilFilePath1, out, build_no, target, build,
-				jenkins_home);
+				jenkins_home,listener,buildNo);
 		filename.copyTo(target);
 
 		return exitCode;

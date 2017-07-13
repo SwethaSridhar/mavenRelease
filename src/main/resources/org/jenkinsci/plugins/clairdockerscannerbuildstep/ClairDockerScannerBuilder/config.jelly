@@ -14,6 +14,9 @@
      <f:entry title="Local Analyzer Path" field="localAnalyzerPath">
       <f:textbox />
     </f:entry>
+     <f:entry title="Number Of Builds To Display" field="buildNo"> <f:textbox default="0" />
+      
+    </f:entry>
      <f:block>
      <b>Quality Gate</b>
    </f:block>

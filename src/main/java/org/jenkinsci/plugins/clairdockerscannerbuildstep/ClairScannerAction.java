@@ -21,14 +21,14 @@ public class ClairScannerAction implements Action {
 	@Override
 	public String getIconFileName() {
 		// return the path to the icon file
-		return "/plugin/clair-docker-scanner/images/clair.png";
+		return "/plugin/Docker-Security-Scanner/images/clair.png";
 	}
 
 	@Override
 	public String getDisplayName() {
 		// return the label for your link
-		// return "Clair Docker Scanner - " + localImage;
-		return "Docker Security Analysis - " + localImage;
+		//return "Docker Security Analysis - " + localImage;
+		return "Docker Security Analysis";
 	}
 
 	@Override

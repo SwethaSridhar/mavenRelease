@@ -12,15 +12,18 @@ import hudson.EnvVars;
 import hudson.FilePath;
 import hudson.Launcher;
 import hudson.model.AbstractBuild;
+import hudson.model.BuildListener;
 
 public class Values_File{
-	public static File valuesFile(int high,int med,int low,int neg,String build_no,AbstractBuild build, String jenkins_home) throws IOException, InterruptedException
+	public static File valuesFile(int high,int med,int low,int neg,String build_no,AbstractBuild build, String jenkins_home, BuildListener listener) throws IOException, InterruptedException
 		 {
 		int b_no=Integer.parseInt(build_no);
+		EnvVars env = build.getEnvironment(listener);
+		String JobName=env.get("JOB_NAME");
 		System.out.println("Jenkins home variable"+jenkins_home);
 		//System.out.println("values "+high+" "+med+" "+low+" "+neg+" "+build_no);
 		int Total_count=high+med+low+neg;
-		String Filename="Severity_Count.properties";
+		String Filename=JobName+"_Severity_Count.properties";
 		File writer = new File(build.getRootDir(),"print_stream");
 			 FilePath workspace = build.getWorkspace();
 			FilePath target = new FilePath(workspace,Filename );
@@ -75,7 +78,8 @@ public class Values_File{
 
 			FilePath Filepath1=new FilePath(file);
 			Filepath1.copyTo(target);
-		
+		System.out.println("value of target "+target);
+		System.out.println("value of workspoce "+workspace);
 	
 			return file;
 		

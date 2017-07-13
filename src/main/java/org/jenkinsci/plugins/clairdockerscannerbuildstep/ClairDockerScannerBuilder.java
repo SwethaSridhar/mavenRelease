@@ -42,6 +42,7 @@ public class ClairDockerScannerBuilder extends Builder {
 	private static int count;
 	private static int buildId = 0;
 	private final String localAnalyzerPath;
+	private final int buildNo;
 
 	public synchronized static void setCount(int count) {
 		ClairDockerScannerBuilder.count = count;
@@ -55,15 +56,17 @@ public class ClairDockerScannerBuilder extends Builder {
 	// "DataBoundConstructor"
 	@DataBoundConstructor
 	public ClairDockerScannerBuilder(String localImage, int high, int low, int medium, Boolean Severity,
-			String localAnalyzerPath) {
+			String localAnalyzerPath,int buildNo) {
 
 		this.localImage = localImage;
 		this.localAnalyzerPath = localAnalyzerPath;
+		this.buildNo=buildNo;
 		this.Severity = (Severity != null) && Severity;
 		if (Severity != false) {
 			this.low = low;
 			this.high = high;
 			this.medium = medium;
+			
 
 		}
 
@@ -96,6 +99,13 @@ public class ClairDockerScannerBuilder extends Builder {
 	public boolean isSeverity() {
 		return Severity;
 	}
+	
+	
+
+	public int getBuildNo() {
+		return buildNo;
+	}
+	
 
 	@Override
 	public boolean perform(AbstractBuild build, Launcher launcher, BuildListener listener)
@@ -141,7 +151,7 @@ public class ClairDockerScannerBuilder extends Builder {
 		// artifactName = "scanout-" + localimage1 + ".html";
 
 		int exitCode = ScannerExecuter.execute(build, launcher, listener, artifactName, apiURL, localimage1,
-				localAnalyzerPath, build_no, jenkins_home);
+				localAnalyzerPath, build_no, jenkins_home,buildNo);
 		build.addAction(new ClairScannerAction(build, artifactSuffix, artifactName, localimage1));
 
 		archiveArtifacts(build, launcher, listener);

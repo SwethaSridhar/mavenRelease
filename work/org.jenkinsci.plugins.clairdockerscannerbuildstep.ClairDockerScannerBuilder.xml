@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<org.jenkinsci.plugins.clairdockerscannerbuildstep.ClairDockerScannerBuilder_-DescriptorImpl plugin="clair-docker-scanner@1.0-SNAPSHOT">
-  <localAnalyzerPath>/home/jenkins/analyze-local-images</localAnalyzerPath>
+<org.jenkinsci.plugins.clairdockerscannerbuildstep.ClairDockerScannerBuilder_-DescriptorImpl plugin="Docker-Security-Scanner@1.0-SNAPSHOT">
   <apiURL>http://10.242.138.116:6060</apiURL>
 </org.jenkinsci.plugins.clairdockerscannerbuildstep.ClairDockerScannerBuilder_-DescriptorImpl>
